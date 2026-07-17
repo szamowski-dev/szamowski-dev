@@ -3,6 +3,20 @@
 mempalace.yaml
 entities.json
 
+# Internal agent tooling
+/AGENTS.md
+/.agents/
+/.codex/
+/.mempalace/
+
+# Internal design work
+/design/
+/design-system/
+
+# Superseded local copies
+/app/globals 2.css
+/app/layout 2.tsx
+
 # dependencies
 /node_modules
 /.pnpm-store

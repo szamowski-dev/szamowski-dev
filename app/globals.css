@@ -678,11 +678,10 @@
 .prismatic-image {
   position: relative;
   z-index: 1;
-  width: auto;
-  height: min(84%, 41rem);
-  max-height: 92%;
-  border-radius: 0.75rem;
-  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 0.45);
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .project-copa .project-copy {
@@ -1353,9 +1352,8 @@
   }
 
   .prismatic-image {
-    max-width: 76%;
-    height: auto;
-    max-height: 90%;
+    width: 100%;
+    height: 100%;
   }
 
   .copa-media {

@@ -1,7 +1,3 @@
-# szamowski.dev
-
-> Software that feels native, wherever it runs.
-
 The personal portfolio of [Maciej Szamowski](https://szamowski.dev), a Fullstack Developer based in Warsaw. It is a focused home for work across Swift, React, Next.js and TypeScript.
 
 ![Deep navy canvas with a cyan six-point asterisk](public/brand/szamowski-hero.png)

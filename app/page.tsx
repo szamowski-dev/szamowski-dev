@@ -316,7 +316,10 @@ export default function Home() {
       </main>
 
       <footer className="site-footer section-shell mono">
-        <span>Maciej Szamowski · Warsaw, Poland</span>
+        <span>
+          NA SERIO MACIEJ SZAMOWSKI (DUNS 849712396) · Szarego Wilka 14/1,
+          05-082 Stare Babice, Poland · PL VAT: 5222864821
+        </span>
         <div className="site-footer__end">
           <CookieSettingsButton />
           <span>© 2026</span>

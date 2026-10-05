@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
   keywords: [
+    "Senior marketer who codes",
+    "Pixel Helper",
+    "hora Calendar",
     "Fullstack developer",
     "Swift developer",
     "React developer",

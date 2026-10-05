@@ -10,6 +10,6 @@ export const size = {
 };
 export const contentType = "image/png";
 
-export default function OpenGraphImage() {
-  return new ImageResponse(<SocialImage />, size);
+export default async function OpenGraphImage() {
+  return new ImageResponse(await SocialImage(), size);
 }

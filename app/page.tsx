@@ -15,6 +15,8 @@ import copaKeyart from "@/public/images/copa-keyart.webp";
 import gnomeTray from "@/public/images/gnome-tray.png";
 import horaHero from "@/public/images/hora-hero.png";
 import horaIcon from "@/public/images/hora-icon.png";
+import pixelHelperIcon from "@/public/images/pixel-helper-icon.png";
+import pixelHelperSafari from "@/public/images/pixel-helper-safari.png";
 import prismaticApp from "@/public/images/prismatic-app.png";
 import prismaticIcon from "@/public/images/prismatic-icon.png";
 import { siteConfig } from "@/lib/site";
@@ -23,6 +25,7 @@ const links = {
   github: "https://github.com/szamski",
   linkedin: "https://pl.linkedin.com/in/szamowski",
   hora: "https://horacal.app",
+  pixelHelper: "https://pixel.szamowski.dev",
   prismatic: "https://github.com/szamski/Prismatic-for-macOS",
   copaCity: "https://www.copacity.club/en",
   gnome: "https://github.com/szamski/gnome-tray-toggle",
@@ -83,7 +86,7 @@ export default function Home() {
               <span aria-hidden="true">wherever it runs.</span>
             </h1>
             <p className="hero-support">
-              Fullstack developer building with Swift, React, Next.js and TypeScript.
+              Senior marketer who codes. Building native Mac apps: hora Calendar and Pixel Helper.
             </p>
 
             <div className="hero-actions">
@@ -115,14 +118,14 @@ export default function Home() {
                 <p className="eyebrow"><span>01</span> Work</p>
                 <h2 id="work-title">Selected work</h2>
               </div>
-              <p className="section-count mono">01 — 04</p>
+              <p className="section-count mono">01 — 05</p>
             </header>
 
             <article id="hora" className="project project-hora" aria-labelledby="hora-title">
               <div className="project-media hora-media">
                 <Image
                   src={horaHero}
-                  alt="Hora week view showing a native macOS calendar, sidebar and focus timer"
+                  alt="Hora dark week view with event details, a Google Meet link and a focus timer"
                   sizes="(max-width: 900px) 100vw, 66vw"
                   className="media-image"
                   placeholder="blur"
@@ -145,12 +148,50 @@ export default function Home() {
             </article>
 
             <article
+              id="pixel-helper"
+              className="project project-pixel"
+              aria-labelledby="pixel-helper-title"
+            >
+              <div className="project-copy">
+                <p className="project-index mono">02</p>
+                <div className="project-title-with-icon">
+                  <Image
+                    className="project-icon"
+                    src={pixelHelperIcon}
+                    alt=""
+                    width={72}
+                    height={72}
+                  />
+                  <h3 id="pixel-helper-title">Pixel Helper</h3>
+                </div>
+                <p className="project-tagline">Tag and pixel debugging, right in Safari.</p>
+                <p className="project-role">Creator &amp; developer</p>
+                <p className="project-description">
+                  Inspect Google tags and Meta, TikTok, Reddit and X pixels. See the IDs, events
+                  and request details observed by your browser.
+                </p>
+                <p className="project-stack mono">Safari · macOS · Open source</p>
+                <ProjectLink href={links.pixelHelper}>Visit Pixel Helper</ProjectLink>
+              </div>
+
+              <div className="project-media project-media--framed pixel-media">
+                <Image
+                  src={pixelHelperSafari}
+                  alt="Pixel Helper in Safari showing detected marketing tags and pixel events"
+                  sizes="(max-width: 1024px) 100vw, 66vw"
+                  className="media-image"
+                  placeholder="blur"
+                />
+              </div>
+            </article>
+
+            <article
               id="prismatic"
               className="project project-prismatic"
               aria-labelledby="prismatic-title"
             >
               <div className="project-copy prismatic-copy">
-                <p className="project-index mono">02</p>
+                <p className="project-index mono">03</p>
                 <div className="project-title-with-icon">
                   <Image
                     className="project-icon"
@@ -185,7 +226,7 @@ export default function Home() {
 
             <article id="copa-city" className="project project-copa" aria-labelledby="copa-title">
               <div className="project-copy copa-copy">
-                <p className="project-index mono">03</p>
+                <p className="project-index mono">04</p>
                 <h3 id="copa-title">Copa City</h3>
                 <p className="project-tagline">A global game platform, rebuilt for scale.</p>
                 <p className="project-role">Web developer</p>
@@ -216,7 +257,7 @@ export default function Home() {
               className="project project-gnome"
               aria-labelledby="gnome-title"
             >
-              <p className="project-index mono">04</p>
+              <p className="project-index mono">05</p>
               <div className="project-media project-media--framed gnome-media">
                 <Image
                   src={gnomeTray}
@@ -248,16 +289,17 @@ export default function Home() {
 
           <section id="about" className="about section-shell" aria-labelledby="about-title">
             <div className="about-copy">
-              <p className="eyebrow"><span>05</span> About</p>
-              <h2 id="about-title">One craft. Two runtimes.</h2>
+              <p className="eyebrow"><span>06</span> About</p>
+              <h2 id="about-title">Senior marketer who codes.</h2>
               <p className="about-lede">
-                I build native Apple apps and modern web products from the interface down to the
-                systems underneath.
+                16+ years in marketing, including leading marketing and growth at Selmo and
+                teaching games marketing at ISART DIGITAL.
               </p>
               <p>
-                Across Swift and TypeScript, I care about fast interaction, clear architecture and
-                software that stays out of the way.
+                Now I also build native Mac apps: hora Calendar and Pixel Helper. I share what
+                works, what breaks, and the tiny details along the way.
               </p>
+              <ProjectLink href={links.linkedin}>More on my background</ProjectLink>
 
               <dl className="runtime-list mono">
                 <div>
@@ -284,7 +326,7 @@ export default function Home() {
 
           <section id="contact" className="contact section-shell" aria-labelledby="contact-title">
             <div className="contact-intro">
-              <p className="eyebrow"><span>06</span> Contact</p>
+              <p className="eyebrow"><span>07</span> Contact</p>
               <h2 id="contact-title">Let&apos;s talk.</h2>
               <p>For product work, collaborations, or a good technical problem.</p>
               <a className="email-link mono" href={`mailto:${siteConfig.email}`}>

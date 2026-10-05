@@ -514,6 +514,7 @@
 }
 
 .project-hora,
+.project-pixel,
 .project-prismatic,
 .project-copa {
   display: grid;
@@ -633,6 +634,7 @@
   border-color: var(--accent-warm);
 }
 
+.project-pixel .project-copy,
 .project-prismatic .project-copy {
   grid-column: span 4;
   align-self: center;
@@ -653,8 +655,13 @@
   font-size: clamp(2.4rem, 3.6vw, 4.35rem);
 }
 
+.project-pixel .project-media,
 .project-prismatic .project-media {
   grid-column: 5 / span 8;
+}
+
+.pixel-media {
+  align-self: center;
 }
 
 .prismatic-stage {
@@ -1196,6 +1203,7 @@
   }
 
   .project-hora,
+  .project-pixel,
   .project-prismatic,
   .project-copa {
     grid-template-columns: 1fr;
@@ -1203,6 +1211,8 @@
 
   .project-hora .project-media,
   .project-hora .project-copy,
+  .project-pixel .project-copy,
+  .project-pixel .project-media,
   .project-prismatic .project-copy,
   .project-prismatic .project-media,
   .project-copa .project-copy,
@@ -1211,6 +1221,7 @@
   }
 
   .project-hora .project-copy,
+  .project-pixel .project-copy,
   .project-prismatic .project-copy,
   .project-copa .project-copy {
     order: 1;
@@ -1218,6 +1229,7 @@
   }
 
   .project-hora .project-media,
+  .project-pixel .project-media,
   .project-prismatic .project-media,
   .project-copa .project-media {
     order: 2;
@@ -1328,6 +1340,7 @@
   }
 
   .project-hora,
+  .project-pixel,
   .project-prismatic,
   .project-copa {
     gap: 2.5rem;

@@ -28,6 +28,7 @@ Open [localhost:3000](http://localhost:3000).
 npm run lint
 npm run typecheck
 npm run build
+node scripts/check-posthog-consent.mjs
 ```
 
 ## Project map

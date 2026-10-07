@@ -122,19 +122,17 @@ function clearRevokedVendorCookies(state: ConsentState): void {
 export function applyConsentToVendors(state: ConsentState): void {
   if (typeof window === "undefined") return;
 
-  window.gtag?.("consent", "update", {
-    analytics_storage: state.analytics ? "granted" : "denied",
-    ad_storage: state.marketing ? "granted" : "denied",
-    ad_user_data: state.marketing ? "granted" : "denied",
-    ad_personalization: state.marketing ? "granted" : "denied",
-  });
-
-  window.fbq?.("consent", state.marketing ? "grant" : "revoke");
-
-  if (state.marketing) {
-    window.ttq?.grantConsent?.();
-  } else {
-    window.ttq?.revokeConsent?.();
+  const posthog = window.posthog;
+  if (posthog?.config?.token) {
+    posthog.set_config({ disable_persistence: !state.analytics });
+    if (state.analytics) {
+      posthog.register({ marketing_consent: state.marketing });
+      if (!posthog.has_opted_in_capturing()) {
+        posthog.opt_in_capturing({ captureEventName: false });
+      }
+    } else {
+      posthog.opt_out_capturing();
+    }
   }
 
   if (!state.analytics || !state.marketing) {

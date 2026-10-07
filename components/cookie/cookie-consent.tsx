@@ -159,14 +159,14 @@ export function CookieConsent() {
               <ConsentOption
                 id="consent-analytics"
                 label="Analytics"
-                description="Google Analytics helps me understand visits and navigation."
+                description="PostHog helps me understand visits and navigation."
                 checked={analytics}
                 onCheckedChange={setAnalytics}
               />
               <ConsentOption
                 id="consent-marketing"
                 label="Marketing"
-                description="Meta Pixel, TikTok Pixel and LinkedIn Insight measure campaigns."
+                description="Controls consent for advertising and campaign measurement."
                 checked={marketing}
                 onCheckedChange={setMarketing}
               />

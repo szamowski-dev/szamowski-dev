@@ -6,7 +6,7 @@ import {
 
 import { CopyEmail } from "@/components/copy-email";
 import { CookieSettingsButton } from "@/components/cookie/cookie-settings-button";
-import { SiteHeader } from "@/components/site-header";
+import { SiteHeader, XMark } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
 import { ShaderGate } from "@/components/visuals/shader-gate";
 
@@ -24,6 +24,7 @@ import { siteConfig } from "@/lib/site";
 const links = {
   github: "https://github.com/szamski",
   linkedin: "https://pl.linkedin.com/in/szamowski",
+  x: "https://x.com/szamski",
   hora: "https://horacal.app",
   pixelHelper: "https://pixel.szamowski.dev",
   prismatic: "https://github.com/szamski/Prismatic-for-macOS",
@@ -348,6 +349,14 @@ export default function Home() {
                 <a href={links.linkedin} target="_blank" rel="noreferrer">
                   <LinkedInMark />
                   LinkedIn
+                  <ExternalArrow />
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="contact-button">
+                <a href={links.x} target="_blank" rel="noreferrer">
+                  <XMark />
+                  X
                   <ExternalArrow />
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>

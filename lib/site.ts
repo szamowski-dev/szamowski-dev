@@ -12,6 +12,7 @@ export const siteConfig = {
   links: {
     github: "https://github.com/szamski",
     linkedin: "https://pl.linkedin.com/in/szamowski",
+    x: "https://x.com/szamski",
     hora: "https://horacal.app",
     pixelHelper: "https://pixel.szamowski.dev",
     prismatic: "https://github.com/szamski/Prismatic-for-macOS",

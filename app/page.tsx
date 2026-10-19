@@ -30,7 +30,26 @@ const links = {
   prismatic: "https://github.com/szamski/Prismatic-for-macOS",
   copaCity: "https://www.copacity.club/en",
   gnome: "https://github.com/szamski/gnome-tray-toggle",
+  profilingArticle: "https://horacal.app/blog/swiftui-performance-profiling-instruments/",
 } as const;
+
+const featuredIn = [
+  {
+    name: "Fatbobman’s Swift Weekly",
+    issue: "#157",
+    href: "https://fatbobman.com/en/weekly/issue-157/",
+  },
+  {
+    name: "Those Who Swift",
+    issue: "#288",
+    href: "https://thosewhoswift.substack.com/p/those-who-swift-issue-288",
+  },
+  {
+    name: "iOS Dev Weekly",
+    issue: "#771",
+    href: "https://iosdevweekly.com/issues/771",
+  },
+] as const;
 
 function ExternalArrow() {
   return <ArrowUpRight aria-hidden="true" data-icon="inline-end" />;
@@ -113,6 +132,40 @@ export default function Home() {
         </section>
 
         <div className="content-flow">
+          <section className="featured section-shell" aria-labelledby="featured-title">
+            <h2 id="featured-title" className="eyebrow featured-label">
+              Featured in
+            </h2>
+
+            <ul className="featured-list">
+              {featuredIn.map((item) => (
+                <li key={item.href}>
+                  <a
+                    className="featured-item"
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="featured-name">{item.name}</span>
+                    <span className="featured-issue mono">
+                      Issue {item.issue}
+                      <ExternalArrow />
+                    </span>
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <p className="featured-note mono">
+              For{" "}
+              <a href={links.profilingArticle} target="_blank" rel="noopener noreferrer">
+                SwiftUI Profiling with Instruments: 100,000 Calendar Events
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </p>
+          </section>
+
           <section id="work" className="work section-shell" aria-labelledby="work-title">
             <header className="section-heading-row">
               <div>

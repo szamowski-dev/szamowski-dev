@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -13,6 +13,7 @@ import { ShaderGate } from "@/components/visuals/shader-gate";
 import avatar from "@/public/images/avatar.jpg";
 import copaKeyart from "@/public/images/copa-keyart.webp";
 import gnomeTray from "@/public/images/gnome-tray.png";
+import keepTheDealIcon from "@/public/images/keep-the-deal-icon.png";
 import horaHero from "@/public/images/hora-hero.png";
 import horaIcon from "@/public/images/hora-icon.png";
 import pixelHelperIcon from "@/public/images/pixel-helper-icon.png";
@@ -30,6 +31,8 @@ const links = {
   prismatic: "https://github.com/szamski/Prismatic-for-macOS",
   copaCity: "https://www.copacity.club/en",
   gnome: "https://github.com/szamski/gnome-tray-toggle",
+  keepTheDeal: "https://apps.apple.com/pl/app/keep-the-deal/id6819039574",
+  dogadani: "https://dogadani.app",
   profilingArticle: "https://horacal.app/blog/swiftui-performance-profiling-instruments/",
 } as const;
 
@@ -80,6 +83,51 @@ function ProjectLink({ href, children }: { href: string; children: React.ReactNo
       </span>
       <ExternalArrow />
     </a>
+  );
+}
+
+const keepTheDealAlt =
+  "Keep the Deal on three iPhones: the parent’s chore setup, the teen’s daily view with the remaining pot, and choosing the reward.";
+
+function KeepTheDealArt() {
+  const common = { alt: keepTheDealAlt, sizes: "(max-width: 64rem) 100vw, 66vw" };
+  const {
+    props: { srcSet: mobileSrcSet },
+  } = getImageProps({
+    ...common,
+    src: "/images/keep-the-deal-card-art-mobile.webp",
+    width: 1080,
+    height: 1200,
+  });
+  const { props: desktopProps } = getImageProps({
+    ...common,
+    src: "/images/keep-the-deal-card-art.webp",
+    width: 1760,
+    height: 990,
+  });
+
+  return (
+    <picture>
+      <source media="(max-width: 64rem)" srcSet={mobileSrcSet} />
+      {/* eslint-disable-next-line jsx-a11y/alt-text */}
+      <img {...desktopProps} className="media-image ktd-art" />
+    </picture>
+  );
+}
+
+function ClientRole({ parts }: { parts: readonly string[] }) {
+  return (
+    <p className="project-role project-role--client">
+      <span className="client-badge">Client work</span>
+      <span className="role-text">
+        {parts.map((part, index) => (
+          <span key={part} className="role-chunk">
+            {part}
+            {index < parts.length - 1 ? " ·" : ""}
+          </span>
+        ))}
+      </span>
+    </p>
   );
 }
 
@@ -172,7 +220,7 @@ export default function Home() {
                 <p className="eyebrow"><span>01</span> Work</p>
                 <h2 id="work-title">Selected work</h2>
               </div>
-              <p className="section-count mono">01 — 05</p>
+              <p className="section-count mono">01 — 06</p>
             </header>
 
             <article id="hora" className="project project-hora" aria-labelledby="hora-title">
@@ -240,12 +288,42 @@ export default function Home() {
             </article>
 
             <article
+              id="keep-the-deal"
+              className="project project-ktd"
+              aria-labelledby="ktd-title"
+            >
+              <div className="project-media project-media--framed ktd-media">
+                <KeepTheDealArt />
+              </div>
+
+              <div className="project-copy ktd-copy">
+                <p className="project-index mono">03</p>
+                <div className="project-title-with-icon">
+                  <Image className="project-icon" src={keepTheDealIcon} alt="" width={72} height={72} />
+                  <h3 id="ktd-title">Keep the Deal</h3>
+                </div>
+                <p className="project-tagline">Chore deals between parents and teens, written down and agreed.</p>
+                <ClientRole parts={["iOS app, frontend & backend", "for dogadani"]} />
+                <p className="project-description">
+                  Parents set chores, schoolwork and a reward, like pocket money or screen time. The
+                  teen joins with a one-time code, agrees to the deal and ticks tasks off, with no child
+                  accounts and no ads.
+                </p>
+                <p className="project-stack mono">iOS 26 · iPhone · StoreKit subscriptions · Sign in with Apple · Backend · App Store release · EN / PL</p>
+                <div className="ktd-links">
+                  <ProjectLink href={links.keepTheDeal}>View on the App Store</ProjectLink>
+                  <ProjectLink href={links.dogadani}>dogadani.app</ProjectLink>
+                </div>
+              </div>
+            </article>
+
+            <article
               id="prismatic"
               className="project project-prismatic"
               aria-labelledby="prismatic-title"
             >
               <div className="project-copy prismatic-copy">
-                <p className="project-index mono">03</p>
+                <p className="project-index mono">04</p>
                 <div className="project-title-with-icon">
                   <Image
                     className="project-icon"
@@ -280,10 +358,10 @@ export default function Home() {
 
             <article id="copa-city" className="project project-copa" aria-labelledby="copa-title">
               <div className="project-copy copa-copy">
-                <p className="project-index mono">04</p>
+                <p className="project-index mono">05</p>
                 <h3 id="copa-title">Copa City</h3>
                 <p className="project-tagline">A global game platform, rebuilt for scale.</p>
-                <p className="project-role">Web developer</p>
+                <ClientRole parts={["Web developer"]} />
                 <p className="project-description">
                   A multilingual Next.js platform powered by Storyblok, with custom WebGL shaders,
                   deferred rendering and mobile-first performance.
@@ -311,7 +389,7 @@ export default function Home() {
               className="project project-gnome"
               aria-labelledby="gnome-title"
             >
-              <p className="project-index mono">05</p>
+              <p className="project-index mono">06</p>
               <div className="project-media project-media--framed gnome-media">
                 <Image
                   src={gnomeTray}
@@ -343,7 +421,7 @@ export default function Home() {
 
           <section id="about" className="about section-shell" aria-labelledby="about-title">
             <div className="about-copy">
-              <p className="eyebrow"><span>06</span> About</p>
+              <p className="eyebrow"><span>07</span> About</p>
               <h2 id="about-title">Senior marketer who codes.</h2>
               <p className="about-lede">
                 16+ years in marketing, including leading marketing and growth at Selmo and
@@ -380,7 +458,7 @@ export default function Home() {
 
           <section id="contact" className="contact section-shell" aria-labelledby="contact-title">
             <div className="contact-intro">
-              <p className="eyebrow"><span>07</span> Contact</p>
+              <p className="eyebrow"><span>08</span> Contact</p>
               <h2 id="contact-title">Let&apos;s talk.</h2>
               <p>For product work, collaborations, or a good technical problem.</p>
               <a className="email-link mono" href={`mailto:${siteConfig.email}`}>

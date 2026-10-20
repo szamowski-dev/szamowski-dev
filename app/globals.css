@@ -1662,3 +1662,84 @@
     animation-iteration-count: 1 !important;
   }
 }
+
+/* Keep the Deal (client work) */
+.project-ktd {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 4.5rem);
+  padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+.project-ktd .project-media {
+  grid-column: span 8;
+}
+
+.project-ktd .project-copy {
+  grid-column: span 4;
+  align-self: center;
+}
+
+.ktd-media {
+  aspect-ratio: 16 / 9;
+  background: #f3ede2;
+}
+
+.ktd-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Client work role line: pill on its own row, role text wraps only between chunks */
+.project-role--client {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.client-badge {
+  display: inline-block;
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  background: #b4e23a;
+  color: #16120f;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.role-text {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.55em;
+  row-gap: 0.15rem;
+}
+
+.role-chunk {
+  white-space: nowrap;
+}
+
+.ktd-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+}
+
+@media (max-width: 64rem) {
+  .project-ktd .project-media,
+  .project-ktd .project-copy {
+    grid-column: 1 / -1;
+  }
+
+  .project-ktd .project-copy {
+    order: -1;
+  }
+
+  .ktd-media {
+    aspect-ratio: 1080 / 1200;
+  }
+}

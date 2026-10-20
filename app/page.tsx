@@ -13,6 +13,10 @@ import { ShaderGate } from "@/components/visuals/shader-gate";
 import avatar from "@/public/images/avatar.jpg";
 import copaKeyart from "@/public/images/copa-keyart.webp";
 import gnomeTray from "@/public/images/gnome-tray.png";
+import keepTheDealIcon from "@/public/images/keep-the-deal-icon.png";
+import keepTheDealNagging from "@/public/images/keep-the-deal-no-more-nagging.webp";
+import keepTheDealDeal from "@/public/images/keep-the-deal-the-deal.webp";
+import keepTheDealConsent from "@/public/images/keep-the-deal-teen-consent.webp";
 import horaHero from "@/public/images/hora-hero.png";
 import horaIcon from "@/public/images/hora-icon.png";
 import pixelHelperIcon from "@/public/images/pixel-helper-icon.png";
@@ -30,6 +34,8 @@ const links = {
   prismatic: "https://github.com/szamski/Prismatic-for-macOS",
   copaCity: "https://www.copacity.club/en",
   gnome: "https://github.com/szamski/gnome-tray-toggle",
+  keepTheDeal: "https://apps.apple.com/app/keep-the-deal/id6819039574",
+  dogadani: "https://dogadani.app",
   profilingArticle: "https://horacal.app/blog/swiftui-performance-profiling-instruments/",
 } as const;
 
@@ -172,7 +178,7 @@ export default function Home() {
                 <p className="eyebrow"><span>01</span> Work</p>
                 <h2 id="work-title">Selected work</h2>
               </div>
-              <p className="section-count mono">01 — 05</p>
+              <p className="section-count mono">01 — 06</p>
             </header>
 
             <article id="hora" className="project project-hora" aria-labelledby="hora-title">
@@ -240,12 +246,53 @@ export default function Home() {
             </article>
 
             <article
+              id="keep-the-deal"
+              className="project project-ktd"
+              aria-labelledby="ktd-title"
+            >
+              <div className="project-media project-media--framed ktd-stage">
+                <div className="ktd-phones">
+                  <Image src={keepTheDealNagging} alt="" sizes="(max-width: 900px) 30vw, 18vw" className="ktd-shot ktd-shot--side" />
+                  <Image
+                    src={keepTheDealDeal}
+                    alt="Keep the Deal on iPhone: a parent writes down household duties and what each one costs if skipped"
+                    sizes="(max-width: 900px) 34vw, 20vw"
+                    className="ktd-shot ktd-shot--main"
+                  />
+                  <Image src={keepTheDealConsent} alt="" sizes="(max-width: 900px) 30vw, 18vw" className="ktd-shot ktd-shot--side" />
+                </div>
+                <p className="ktd-media-label mono">Client project · iPhone</p>
+              </div>
+
+              <div className="project-copy ktd-copy">
+                <p className="project-index mono">03</p>
+                <div className="project-title-with-icon">
+                  <Image className="project-icon" src={keepTheDealIcon} alt="" width={72} height={72} />
+                  <h3 id="ktd-title">Keep the Deal</h3>
+                </div>
+                <p className="project-tagline">Parent–teen chore deals that actually stick.</p>
+                <p className="project-role">
+                  <span className="client-badge">Client work</span> iOS developer · for dogadani
+                </p>
+                <p className="project-description">
+                  Parents write down chores, schoolwork and a reward. The teen joins with a one-time
+                  code, agrees to the deal and ticks tasks off. No child accounts, no ads, ever.
+                </p>
+                <p className="project-stack mono">iOS 26 · iPhone · Sign in with Apple · EN / PL</p>
+                <div className="ktd-links">
+                  <ProjectLink href={links.keepTheDeal}>View on the App Store</ProjectLink>
+                  <ProjectLink href={links.dogadani}>dogadani.app</ProjectLink>
+                </div>
+              </div>
+            </article>
+
+            <article
               id="prismatic"
               className="project project-prismatic"
               aria-labelledby="prismatic-title"
             >
               <div className="project-copy prismatic-copy">
-                <p className="project-index mono">03</p>
+                <p className="project-index mono">04</p>
                 <div className="project-title-with-icon">
                   <Image
                     className="project-icon"
@@ -280,7 +327,7 @@ export default function Home() {
 
             <article id="copa-city" className="project project-copa" aria-labelledby="copa-title">
               <div className="project-copy copa-copy">
-                <p className="project-index mono">04</p>
+                <p className="project-index mono">05</p>
                 <h3 id="copa-title">Copa City</h3>
                 <p className="project-tagline">A global game platform, rebuilt for scale.</p>
                 <p className="project-role">Web developer</p>
@@ -311,7 +358,7 @@ export default function Home() {
               className="project project-gnome"
               aria-labelledby="gnome-title"
             >
-              <p className="project-index mono">05</p>
+              <p className="project-index mono">06</p>
               <div className="project-media project-media--framed gnome-media">
                 <Image
                   src={gnomeTray}
@@ -343,7 +390,7 @@ export default function Home() {
 
           <section id="about" className="about section-shell" aria-labelledby="about-title">
             <div className="about-copy">
-              <p className="eyebrow"><span>06</span> About</p>
+              <p className="eyebrow"><span>07</span> About</p>
               <h2 id="about-title">Senior marketer who codes.</h2>
               <p className="about-lede">
                 16+ years in marketing, including leading marketing and growth at Selmo and
@@ -380,7 +427,7 @@ export default function Home() {
 
           <section id="contact" className="contact section-shell" aria-labelledby="contact-title">
             <div className="contact-intro">
-              <p className="eyebrow"><span>07</span> Contact</p>
+              <p className="eyebrow"><span>08</span> Contact</p>
               <h2 id="contact-title">Let&apos;s talk.</h2>
               <p>For product work, collaborations, or a good technical problem.</p>
               <a className="email-link mono" href={`mailto:${siteConfig.email}`}>

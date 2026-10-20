@@ -279,7 +279,7 @@ export default function Home() {
                   teen joins with a one-time code, agrees to the deal and ticks tasks off, with no child
                   accounts and no ads.
                 </p>
-                <p className="project-stack mono">iOS 26 · iPhone · StoreKit subscriptions · Sign in with Apple · Backend · EN / PL</p>
+                <p className="project-stack mono">iOS 26 · iPhone · StoreKit subscriptions · Sign in with Apple · Backend · App Store release · EN / PL</p>
                 <div className="ktd-links">
                   <ProjectLink href={links.keepTheDeal}>View on the App Store</ProjectLink>
                   <ProjectLink href={links.dogadani}>dogadani.app</ProjectLink>

@@ -1680,62 +1680,47 @@
   align-self: center;
 }
 
-.ktd-stage {
-  display: grid;
-  place-items: center;
-  min-height: clamp(28rem, 44vw, 42rem);
-  padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 3vw, 3rem) clamp(3.5rem, 5vw, 4.5rem);
-  background:
-    radial-gradient(circle at 50% 38%, rgb(180 226 58 / 0.35), transparent 22rem),
-    #f7f2e9;
+.ktd-media {
+  aspect-ratio: 16 / 9;
+  background: #f3ede2;
 }
 
-.ktd-phones {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(0.75rem, 1.6vw, 1.5rem);
+.ktd-art {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.ktd-shot {
-  display: block;
-  width: 28%;
-  height: auto;
-  border-radius: clamp(0.75rem, 1.4vw, 1.25rem);
-  box-shadow: 0 1.25rem 2.5rem rgb(22 18 15 / 0.18);
-}
-
-.ktd-shot--main {
-  width: 32%;
-  transform: translateY(-4%);
-}
-
-.ktd-shot--side {
-  opacity: 0.94;
-}
-
-.ktd-media-label {
-  position: absolute;
-  right: clamp(1.25rem, 2vw, 2rem);
-  bottom: clamp(1rem, 1.6vw, 1.5rem);
-  margin: 0;
-  color: rgb(22 18 15 / 0.6);
-  font-size: 0.7rem;
+/* Client work role line: pill on its own row, role text wraps only between chunks */
+.project-role--client {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
 }
 
 .client-badge {
   display: inline-block;
-  margin-right: 0.5rem;
   padding: 0.12rem 0.5rem;
   border-radius: 999px;
   background: #b4e23a;
   color: #16120f;
   font-size: 0.7rem;
   font-weight: 600;
+  line-height: 1.5;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  vertical-align: 0.08em;
+}
+
+.role-text {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.55em;
+  row-gap: 0.15rem;
+}
+
+.role-chunk {
+  white-space: nowrap;
 }
 
 .ktd-links {
@@ -1752,5 +1737,9 @@
 
   .project-ktd .project-copy {
     order: -1;
+  }
+
+  .ktd-media {
+    aspect-ratio: 1080 / 1200;
   }
 }

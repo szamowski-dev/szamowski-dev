@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -14,9 +14,6 @@ import avatar from "@/public/images/avatar.jpg";
 import copaKeyart from "@/public/images/copa-keyart.webp";
 import gnomeTray from "@/public/images/gnome-tray.png";
 import keepTheDealIcon from "@/public/images/keep-the-deal-icon.png";
-import keepTheDealNagging from "@/public/images/keep-the-deal-no-more-nagging.webp";
-import keepTheDealDeal from "@/public/images/keep-the-deal-the-deal.webp";
-import keepTheDealConsent from "@/public/images/keep-the-deal-teen-consent.webp";
 import horaHero from "@/public/images/hora-hero.png";
 import horaIcon from "@/public/images/hora-icon.png";
 import pixelHelperIcon from "@/public/images/pixel-helper-icon.png";
@@ -86,6 +83,51 @@ function ProjectLink({ href, children }: { href: string; children: React.ReactNo
       </span>
       <ExternalArrow />
     </a>
+  );
+}
+
+const keepTheDealAlt =
+  "Keep the Deal on three iPhones: the parent’s chore setup, the teen’s daily view with the remaining pot, and choosing the reward.";
+
+function KeepTheDealArt() {
+  const common = { alt: keepTheDealAlt, sizes: "(max-width: 64rem) 100vw, 66vw" };
+  const {
+    props: { srcSet: mobileSrcSet },
+  } = getImageProps({
+    ...common,
+    src: "/images/keep-the-deal-card-art-mobile.webp",
+    width: 1080,
+    height: 1200,
+  });
+  const { props: desktopProps } = getImageProps({
+    ...common,
+    src: "/images/keep-the-deal-card-art.webp",
+    width: 1760,
+    height: 990,
+  });
+
+  return (
+    <picture>
+      <source media="(max-width: 64rem)" srcSet={mobileSrcSet} />
+      {/* eslint-disable-next-line jsx-a11y/alt-text */}
+      <img {...desktopProps} className="media-image ktd-art" />
+    </picture>
+  );
+}
+
+function ClientRole({ parts }: { parts: readonly string[] }) {
+  return (
+    <p className="project-role project-role--client">
+      <span className="client-badge">Client work</span>
+      <span className="role-text">
+        {parts.map((part, index) => (
+          <span key={part} className="role-chunk">
+            {part}
+            {index < parts.length - 1 ? " ·" : ""}
+          </span>
+        ))}
+      </span>
+    </p>
   );
 }
 
@@ -250,18 +292,8 @@ export default function Home() {
               className="project project-ktd"
               aria-labelledby="ktd-title"
             >
-              <div className="project-media project-media--framed ktd-stage">
-                <div className="ktd-phones">
-                  <Image src={keepTheDealNagging} alt="" sizes="(max-width: 900px) 30vw, 18vw" className="ktd-shot ktd-shot--side" />
-                  <Image
-                    src={keepTheDealDeal}
-                    alt="Keep the Deal on iPhone: a parent writes down household duties and what each one costs if skipped"
-                    sizes="(max-width: 900px) 34vw, 20vw"
-                    className="ktd-shot ktd-shot--main"
-                  />
-                  <Image src={keepTheDealConsent} alt="" sizes="(max-width: 900px) 30vw, 18vw" className="ktd-shot ktd-shot--side" />
-                </div>
-                <p className="ktd-media-label mono">Client project · iPhone</p>
+              <div className="project-media project-media--framed ktd-media">
+                <KeepTheDealArt />
               </div>
 
               <div className="project-copy ktd-copy">
@@ -271,9 +303,7 @@ export default function Home() {
                   <h3 id="ktd-title">Keep the Deal</h3>
                 </div>
                 <p className="project-tagline">Chore deals between parents and teens, written down and agreed.</p>
-                <p className="project-role">
-                  <span className="client-badge">Client work</span> iOS app, frontend &amp; backend · for dogadani
-                </p>
+                <ClientRole parts={["iOS app, frontend & backend", "for dogadani"]} />
                 <p className="project-description">
                   Parents set chores, schoolwork and a reward, like pocket money or screen time. The
                   teen joins with a one-time code, agrees to the deal and ticks tasks off, with no child
@@ -331,7 +361,7 @@ export default function Home() {
                 <p className="project-index mono">05</p>
                 <h3 id="copa-title">Copa City</h3>
                 <p className="project-tagline">A global game platform, rebuilt for scale.</p>
-                <p className="project-role">Web developer</p>
+                <ClientRole parts={["Web developer"]} />
                 <p className="project-description">
                   A multilingual Next.js platform powered by Storyblok, with custom WebGL shaders,
                   deferred rendering and mobile-first performance.

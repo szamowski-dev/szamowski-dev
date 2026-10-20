@@ -34,7 +34,7 @@ const links = {
   prismatic: "https://github.com/szamski/Prismatic-for-macOS",
   copaCity: "https://www.copacity.club/en",
   gnome: "https://github.com/szamski/gnome-tray-toggle",
-  keepTheDeal: "https://apps.apple.com/app/keep-the-deal/id6819039574",
+  keepTheDeal: "https://apps.apple.com/pl/app/keep-the-deal/id6819039574",
   dogadani: "https://dogadani.app",
   profilingArticle: "https://horacal.app/blog/swiftui-performance-profiling-instruments/",
 } as const;
@@ -270,15 +270,16 @@ export default function Home() {
                   <Image className="project-icon" src={keepTheDealIcon} alt="" width={72} height={72} />
                   <h3 id="ktd-title">Keep the Deal</h3>
                 </div>
-                <p className="project-tagline">Parent–teen chore deals that actually stick.</p>
+                <p className="project-tagline">Chore deals between parents and teens, written down and agreed.</p>
                 <p className="project-role">
-                  <span className="client-badge">Client work</span> iOS developer · for dogadani
+                  <span className="client-badge">Client work</span> iOS app, frontend &amp; backend · for dogadani
                 </p>
                 <p className="project-description">
-                  Parents write down chores, schoolwork and a reward. The teen joins with a one-time
-                  code, agrees to the deal and ticks tasks off. No child accounts, no ads, ever.
+                  Parents set chores, schoolwork and a reward, like pocket money or screen time. The
+                  teen joins with a one-time code, agrees to the deal and ticks tasks off, with no child
+                  accounts and no ads.
                 </p>
-                <p className="project-stack mono">iOS 26 · iPhone · Sign in with Apple · EN / PL</p>
+                <p className="project-stack mono">iOS 26 · iPhone · StoreKit subscriptions · Sign in with Apple · Backend · EN / PL</p>
                 <div className="ktd-links">
                   <ProjectLink href={links.keepTheDeal}>View on the App Store</ProjectLink>
                   <ProjectLink href={links.dogadani}>dogadani.app</ProjectLink>

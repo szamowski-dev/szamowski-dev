@@ -29,7 +29,6 @@ const links = {
   hora: "https://horacal.app",
   pixelHelper: "https://pixel.szamowski.dev",
   prismatic: "https://github.com/szamski/Prismatic-for-macOS",
-  copaCity: "https://www.copacity.club/en",
   gnome: "https://github.com/szamski/gnome-tray-toggle",
   keepTheDeal: "https://apps.apple.com/pl/app/keep-the-deal/id6819039574",
   dogadani: "https://dogadani.app",
@@ -367,7 +366,6 @@ export default function Home() {
                   deferred rendering and mobile-first performance.
                 </p>
                 <p className="project-stack mono">Next.js · React · TypeScript · Storyblok · WebGL</p>
-                <ProjectLink href={links.copaCity}>Visit Copa City</ProjectLink>
               </div>
 
               <div className="project-media project-media--framed copa-media">

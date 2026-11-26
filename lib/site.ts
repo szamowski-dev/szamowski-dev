@@ -16,7 +16,6 @@ export const siteConfig = {
     hora: "https://horacal.app",
     pixelHelper: "https://pixel.szamowski.dev",
     prismatic: "https://github.com/szamski/Prismatic-for-macOS",
-    copaCity: "https://www.copacity.club/en",
     gnomeTrayToggle: "https://github.com/szamski/gnome-tray-toggle",
   },
 } as const;
